@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ivory font-sans text-ink antialiased;
+  background-image:
+    radial-gradient(circle at top, rgba(169, 120, 69, 0.08), transparent 28%),
+    linear-gradient(to bottom, rgba(245, 241, 232, 1), rgba(245, 241, 232, 0.98));
+}
+
+::selection {
+  background: rgba(169, 120, 69, 0.22);
+  color: #0b0d0f;
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3Ccircle cx='78' cy='42' r='1'/%3E%3Ccircle cx='148' cy='18' r='1'/%3E%3Ccircle cx='112' cy='120' r='1'/%3E%3Ccircle cx='28' cy='118' r='1'/%3E%3Ccircle cx='156' cy='154' r='1'/%3E%3Ccircle cx='60' cy='156' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
+.eyebrow {
+  @apply text-xs font-medium uppercase tracking-[0.35em] text-bronze;
+}
+
+.section-title {
+  @apply font-display text-4xl leading-tight text-ink sm:text-5xl;
+}
+
+.copy-muted {
+  @apply text-sm leading-7 text-stone sm:text-base;
+}
+
+.card-surface {
+  @apply rounded-[2rem] border border-stone/20 bg-soft/70 backdrop-blur;
+}
