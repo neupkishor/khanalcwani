@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 import { navItems, socialLinks } from "@/lib/site-data";
 
@@ -48,6 +52,21 @@ function SocialIcon({ label }: { label: string }) {
 }
 
 export function SiteShell({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <div className="min-h-screen bg-ivory text-ink">
       <header className="sticky top-0 z-50 border-b border-stone/15 bg-[#f3ede4]/92 shadow-[0_18px_48px_rgba(17,24,39,0.12)] backdrop-blur-xl">
@@ -55,6 +74,33 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <Link href="/" className="font-display text-2xl font-bold text-ink">
             Bhawani Khanal
           </Link>
+          <button
+            type="button"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-white/40 text-ink transition hover:border-bronze/40 hover:text-bronze lg:hidden"
+          >
+            <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
+            <span className="relative block h-4 w-5">
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition ${
+                  mobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition ${
+                  mobileMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-current transition ${
+                  mobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
           <nav className="hidden items-center gap-6 text-sm text-stone lg:flex">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="transition hover:text-ink">
@@ -64,12 +110,68 @@ export function SiteShell({ children }: { children: ReactNode }) {
           </nav>
           <Link
             href="/contact"
-            className="rounded-full border border-bronze/30 bg-bronze px-4 py-2 text-sm font-medium text-soft transition hover:bg-ink"
+            className="hidden rounded-full border border-bronze/30 bg-bronze px-4 py-2 text-sm font-medium text-soft transition hover:bg-ink lg:inline-flex"
           >
             Let&apos;s connect
           </Link>
         </div>
       </header>
+      <div
+        id="mobile-navigation"
+        className={`fixed inset-0 z-40 lg:hidden ${
+          mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+      >
+        <div
+          className={`absolute inset-0 bg-ink/35 transition-opacity duration-300 ${
+            mobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        <div
+          className={`mobile-menu-panel absolute inset-x-0 top-0 flex min-h-screen flex-col bg-[linear-gradient(180deg,#f1eadf_0%,#ece2d2_100%)] px-6 pb-10 pt-28 transition-transform duration-300 ${
+            mobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <nav className="flex flex-1 flex-col justify-between gap-10">
+            <div className="space-y-3">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-[1.5rem] border border-ink/10 bg-white/35 px-5 py-4 font-display text-3xl text-ink transition hover:border-bronze/40 hover:text-bronze"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="space-y-6">
+              <Link
+                href="/contact"
+                className="inline-flex rounded-full border border-bronze/30 bg-bronze px-6 py-3 text-sm font-medium text-soft transition hover:bg-ink"
+              >
+                Let&apos;s connect
+              </Link>
+
+              <div className="flex flex-wrap gap-3">
+                {socialLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={link.label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-white/30 text-ink/80 transition hover:border-bronze/50 hover:text-bronze"
+                  >
+                    <SocialIcon label={link.label} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
       {children}
       <footer className="bg-ink text-soft">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.3fr_1fr] lg:px-10">
