@@ -45,9 +45,9 @@ export default function WorkPage() {
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {caseStudySteps.map((step, index) => (
-            <div key={step} className="rounded-[2rem] border border-soft/10 bg-soft/5 p-6">
+            <div key={step} className="rounded-[2rem] border border-ink/10 bg-white/40 p-6">
               <p className="text-sm text-bronze">0{index + 1}</p>
-              <p className="mt-3 text-base text-soft">{step}</p>
+              <p className="mt-3 text-base text-ink">{step}</p>
             </div>
           ))}
         </div>

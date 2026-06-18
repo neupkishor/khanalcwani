@@ -47,8 +47,8 @@ export default function AboutPage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {beliefs.map((belief) => (
-            <div key={belief} className="rounded-[2rem] border border-soft/10 bg-soft/5 p-8">
-              <p className="text-base leading-8 text-soft">{belief}</p>
+            <div key={belief} className="rounded-[2rem] border border-ink/10 bg-white/40 p-8">
+              <p className="text-base leading-8 text-ink">{belief}</p>
             </div>
           ))}
         </div>

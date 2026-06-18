@@ -35,12 +35,12 @@ export default function WritingPage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {libraryShelves.map((shelf) => (
-            <article key={shelf.title} className="rounded-[2rem] border border-soft/10 bg-soft/5 p-8">
+            <article key={shelf.title} className="rounded-[2rem] border border-ink/10 bg-white/40 p-8">
               <h3 className="font-display text-3xl">{shelf.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-stone">{shelf.description}</p>
+              <p className="mt-4 text-sm leading-7 text-ink/65">{shelf.description}</p>
               <div className="mt-6 space-y-3">
                 {shelf.items.map((item) => (
-                  <p key={item} className="text-sm text-soft">
+                  <p key={item} className="text-sm text-ink">
                     {item}
                   </p>
                 ))}

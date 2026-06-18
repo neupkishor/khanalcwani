@@ -6,7 +6,7 @@ import { navItems } from "@/lib/site-data";
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-ivory text-ink">
-      <header className="sticky top-0 z-50 border-b border-stone/10 bg-ivory/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-stone/10 bg-ivory/90 shadow-[0_18px_48px_rgba(17,24,39,0.12)] backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <Link href="/" className="font-display text-2xl text-ink">
             Bhawani Khanal
@@ -27,19 +27,19 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
       </header>
       {children}
-      <footer className="bg-charcoal text-soft">
+      <footer className="bg-[#e7dfd2] text-ink">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.3fr_1fr] lg:px-10">
           <div className="space-y-4">
             <p className="eyebrow">khanalcwani.com</p>
             <h2 className="font-display text-4xl">Kathmandu ambition, editorial clarity, long-term work.</h2>
-            <p className="max-w-2xl text-sm leading-7 text-stone">
+            <p className="max-w-2xl text-sm leading-7 text-ink/65">
               A personal platform for business thinking, marketing projects, creative direction, learning in
               public, and the process of building meaningful brands in Nepal.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 text-sm text-stone">
+          <div className="grid grid-cols-2 gap-4 text-sm text-ink/65">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="transition hover:text-soft">
+              <Link key={item.href} href={item.href} className="transition hover:text-ink">
                 {item.label}
               </Link>
             ))}

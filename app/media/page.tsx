@@ -41,8 +41,8 @@ export default function MediaPage() {
       >
         <div className="grid gap-4 lg:grid-cols-2">
           {videoIdeas.map((idea) => (
-            <div key={idea} className="rounded-[2rem] border border-soft/10 bg-soft/5 p-6">
-              <p className="text-base text-soft">{idea}</p>
+            <div key={idea} className="rounded-[2rem] border border-ink/10 bg-white/40 p-6">
+              <p className="text-base text-ink">{idea}</p>
             </div>
           ))}
         </div>

@@ -38,8 +38,8 @@ export default function NowPage() {
       >
         <div className="grid gap-6 lg:grid-cols-2">
           {questions.map((question) => (
-            <div key={question} className="rounded-[2rem] border border-soft/10 bg-soft/5 p-8">
-              <p className="text-lg leading-8 text-soft">{question}</p>
+            <div key={question} className="rounded-[2rem] border border-ink/10 bg-white/40 p-8">
+              <p className="text-lg leading-8 text-ink">{question}</p>
             </div>
           ))}
         </div>
