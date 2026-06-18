@@ -31,7 +31,6 @@ export default function WritingPage() {
         eyebrow="Reading"
         title="A library that shows current influences and future recommendations."
         description="Books are only one part of the input stream. Essays, newsletters, podcasts, reports, and videos belong here too."
-        invert
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {libraryShelves.map((shelf) => (

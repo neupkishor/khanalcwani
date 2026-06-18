@@ -41,7 +41,6 @@ export default function WorkPage() {
         eyebrow="Case Study Structure"
         title="A repeatable format for showing thoughtful work."
         description="Every future case study can follow the same structure so the portfolio remains coherent as it grows."
-        invert
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {caseStudySteps.map((step, index) => (

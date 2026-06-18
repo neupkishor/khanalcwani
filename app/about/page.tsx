@@ -43,7 +43,6 @@ export default function AboutPage() {
         eyebrow="Belief System"
         title="What I believe about business and creativity."
         description="The best brands do not only look better. They think more clearly, communicate more honestly, and create more trust."
-        invert
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {beliefs.map((belief) => (

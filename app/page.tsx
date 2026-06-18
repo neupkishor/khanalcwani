@@ -6,7 +6,6 @@ import {
   capabilities,
   currentSignals,
   featuredProjects,
-  heroStats,
   learningTracks,
   mediaChannels,
   socialLinks,
@@ -23,17 +22,6 @@ export default function HomePage() {
         primaryCta={{ href: "/work", label: "Explore My Work" }}
         secondaryCta={{ href: "/now", label: "See What I’m Doing Now" }}
       />
-
-      <section className="-mt-10">
-        <div className="mx-auto grid max-w-7xl gap-4 px-6 lg:grid-cols-3 lg:px-10">
-          {heroStats.map((item) => (
-            <div key={item.label} className="card-surface p-6 shadow-aura">
-              <p className="text-xs uppercase tracking-[0.3em] text-stone">{item.label}</p>
-              <p className="mt-4 font-display text-3xl text-ink">{item.value}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <Section
         eyebrow="Currently"
@@ -54,7 +42,6 @@ export default function HomePage() {
         eyebrow="Featured Work"
         title="Strategy, campaign thinking, and clearer business communication."
         description="Selected areas where business thinking and creative direction meet practical execution."
-        invert
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -103,7 +90,6 @@ export default function HomePage() {
         eyebrow="Learning"
         title="A visible learning system across business, marketing, communication, and creativity."
         description="The site should show what I am studying, why it matters, and how it changes the way I work."
-        invert
       >
         <div className="grid gap-6 lg:grid-cols-2">
           {learningTracks.map((track) => (

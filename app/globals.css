@@ -52,3 +52,11 @@ body {
 .card-surface {
   @apply rounded-[2rem] border border-stone/20 bg-soft/70 backdrop-blur;
 }
+
+main > .site-section:nth-of-type(odd) {
+  background: #f5f1e8;
+}
+
+main > .site-section:nth-of-type(even) {
+  background: #efe7db;
+}

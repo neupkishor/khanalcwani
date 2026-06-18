@@ -37,7 +37,6 @@ export default function MediaPage() {
         eyebrow="Video Directions"
         title="Thoughtful short videos first, polished documentaries later."
         description="The format can start simple while the ideas stay sharp."
-        invert
       >
         <div className="grid gap-4 lg:grid-cols-2">
           {videoIdeas.map((idea) => (

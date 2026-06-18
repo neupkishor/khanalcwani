@@ -9,12 +9,6 @@ export const navItems = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const heroStats = [
-  { label: "Based in", value: "Kathmandu, Nepal" },
-  { label: "Focus", value: "Business, marketing, creativity" },
-  { label: "Mode", value: "Learning in public" },
-];
-
 export const currentSignals = [
   {
     label: "Working on",

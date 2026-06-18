@@ -34,7 +34,6 @@ export default function NowPage() {
         eyebrow="Thinking About"
         title="Questions currently occupying my mind."
         description="The Now page is not only for updates. It should also reveal how I think."
-        invert
       >
         <div className="grid gap-6 lg:grid-cols-2">
           {questions.map((question) => (
