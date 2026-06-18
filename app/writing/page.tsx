@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
 import { libraryShelves, writingHighlights } from "@/lib/site-data";
+import Link from "next/link";
 
 export default function WritingPage() {
   return (
@@ -20,7 +21,15 @@ export default function WritingPage() {
           {writingHighlights.map((entry) => (
             <article key={entry.title} className="card-surface p-8">
               <p className="text-xs uppercase tracking-[0.28em] text-bronze">{entry.type}</p>
-              <h3 className="mt-4 font-display text-3xl">{entry.title}</h3>
+              <h3 className="mt-4 font-display text-3xl">
+                {entry.href ? (
+                  <Link href={entry.href} className="transition hover:text-bronze">
+                    {entry.title}
+                  </Link>
+                ) : (
+                  entry.title
+                )}
+              </h3>
               <p className="mt-4 copy-muted">{entry.excerpt}</p>
             </article>
           ))}

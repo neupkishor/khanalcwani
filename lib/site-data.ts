@@ -61,10 +61,11 @@ export const capabilities = [
 
 export const writingHighlights = [
   {
-    title: "Why presentation still shapes trust",
+    title: "I started my Cookie Jar.",
     type: "Article",
     excerpt:
-      "A note on how stronger brand presentation changes how people evaluate businesses before they ever buy.",
+      "A personal note on growth, small consistent actions, and why this website exists as part of my journey.",
+    href: "/blog/i-started-my-cookie-jar-h2hj34v24kjb34",
   },
   {
     title: "What Nepali brands still underinvest in",
