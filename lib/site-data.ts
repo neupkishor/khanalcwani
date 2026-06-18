@@ -134,10 +134,31 @@ export const mediaChannels = [
 ];
 
 export const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com", note: "Professional observations and career development" },
-  { label: "Instagram", href: "https://www.instagram.com", note: "Visual work, short insights, and creative direction" },
-  { label: "Facebook", href: "https://www.facebook.com", note: "Broader communication for a Nepali audience" },
-  { label: "YouTube", href: "https://www.youtube.com", note: "Videos, conversations, and long-form thinking" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/khanalcwani",
+    note: "Professional observations and career development",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/khanalcwani",
+    note: "Visual work, short insights, and creative direction",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/khanalcwani",
+    note: "Broader communication for a Nepali audience",
+  },
+  {
+    label: "X",
+    href: "https://twitter.com/khanalcwani",
+    note: "Short thoughts, ideas in progress, and business observations",
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@khanalcwani",
+    note: "Short-form educational content, quick ideas, and behind-the-scenes clips",
+  },
 ];
 
 export const nowProjects = [

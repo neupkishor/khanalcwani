@@ -132,6 +132,8 @@ export default function HomePage() {
             <Link
               key={link.label}
               href={link.href}
+              target="_blank"
+              rel="noreferrer"
               className="card-surface flex items-center justify-between p-6 transition hover:border-bronze/40"
             >
               <div>
