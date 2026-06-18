@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
 import {
@@ -8,7 +6,6 @@ import {
   featuredProjects,
   learningTracks,
   mediaChannels,
-  socialLinks,
   writingHighlights,
 } from "@/lib/site-data";
 
@@ -122,29 +119,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section
-        eyebrow="Connect"
-        title="Profiles worth maintaining, not icons for decoration."
-        description="The website remains the main archive. Social platforms support it."
-      >
-        <div className="grid gap-4 lg:grid-cols-2">
-          {socialLinks.map((link, index) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="card-surface flex items-center justify-between p-6 transition hover:border-bronze/40"
-            >
-              <div>
-                <p className="font-display text-2xl">{link.label}</p>
-                <p className="mt-2 text-sm leading-7 text-stone">{link.note}</p>
-              </div>
-              <span className="text-bronze">{String(index + 1).padStart(2, "0")}</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
     </main>
   );
 }
