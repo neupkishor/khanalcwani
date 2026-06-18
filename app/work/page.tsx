@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
+import { SchemaScript } from "@/components/schema-script";
 import { featuredProjects } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const caseStudySteps = [
   "Project overview",
@@ -12,9 +15,26 @@ const caseStudySteps = [
   "Results or lessons",
 ];
 
+const pageTitle = "Work";
+const pageDescription =
+  "Explore marketing strategy, creative campaigns, content systems, and business communication work by Bhawani Khanal.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/work",
+});
+
 export default function WorkPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/work",
+        })}
+      />
       <PageHero
         eyebrow="Work"
         title="Marketing strategy, creative campaigns, and business communication."

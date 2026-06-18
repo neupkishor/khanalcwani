@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
+import { SchemaScript } from "@/components/schema-script";
 import { mediaChannels } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const videoIdeas = [
   "Why good-looking content is not always good marketing",
@@ -9,9 +12,26 @@ const videoIdeas = [
   "The thinking behind a campaign idea",
 ];
 
+const pageTitle = "Media";
+const pageDescription =
+  "Explore videos, podcast conversations, and newsletter-style publishing from Bhawani Khanal.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/media",
+});
+
 export default function MediaPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/media",
+        })}
+      />
       <PageHero
         eyebrow="Media"
         title="Videos, podcast conversations, and newsletter notes."

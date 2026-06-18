@@ -1,12 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SchemaScript } from "@/components/schema-script";
+import { buildArticleSchema, buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "I started my Cookie Jar.",
-  description:
-    "A personal reflection on growth, consistency, building from scratch, and using this website as a living record of the journey.",
-};
+const pageTitle = "I started my Cookie Jar.";
+const pageDescription =
+  "A personal reflection on growth, consistency, building from scratch, and using this website as a living record of the journey.";
+const pagePath = "/blog/i-started-my-cookie-jar-h2hj34v24kjb34";
+const pageImage = "/assets/uploads/starting-my-cookies-jar-aigenerate-animestyle.png";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: pagePath,
+  type: "article",
+  images: [
+    {
+      url: pageImage,
+      width: 1200,
+      height: 630,
+      alt: pageTitle,
+    },
+  ],
+});
 
 const articleParagraphs = [
   "I started my Cookie Jar.",
@@ -23,6 +40,22 @@ const articleParagraphs = [
 export default function CookieJarArticlePage() {
   return (
     <main className="bg-ivory text-ink">
+      <SchemaScript
+        schema={[
+          buildWebPageSchema({
+            title: pageTitle,
+            description: pageDescription,
+            path: pagePath,
+          }),
+          buildArticleSchema({
+            title: pageTitle,
+            description: pageDescription,
+            path: pagePath,
+            image: pageImage,
+            datePublished: "2026-06-18",
+          }),
+        ]}
+      />
       <section className="grain overflow-hidden bg-[linear-gradient(180deg,#e7dfd2_0%,#f1ebdf_55%,#f5f1e8_100%)]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10 lg:py-24">
           <div className="max-w-3xl space-y-6">

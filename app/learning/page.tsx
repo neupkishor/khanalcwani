@@ -1,10 +1,30 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
+import { SchemaScript } from "@/components/schema-script";
 import { learningTracks } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
+
+const pageTitle = "Learning";
+const pageDescription =
+  "See what Bhawani Khanal is learning across business, marketing, communication, and creative direction.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/learning",
+});
 
 export default function LearningPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/learning",
+        })}
+      />
       <PageHero
         eyebrow="Learning"
         title="What I am learning and why it matters."

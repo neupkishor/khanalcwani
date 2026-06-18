@@ -1,11 +1,31 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
+import { SchemaScript } from "@/components/schema-script";
 import { libraryShelves, writingHighlights } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
 import Link from "next/link";
+
+const pageTitle = "Writing";
+const pageDescription =
+  "Read articles, notes, reading lists, and recommendations from Bhawani Khanal.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/writing",
+});
 
 export default function WritingPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/writing",
+        })}
+      />
       <PageHero
         eyebrow="Writing"
         title="Articles, notes, reading, and recommendations."

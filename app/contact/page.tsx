@@ -1,12 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageHero } from "@/components/page-hero";
+import { SchemaScript } from "@/components/schema-script";
 import { Section } from "@/components/section";
 import { socialLinks } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
+
+const pageTitle = "Contact";
+const pageDescription =
+  "Get in touch with Bhawani Khanal for brand strategy, campaigns, creative direction, collaborations, and professional conversations.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/contact",
+        })}
+      />
       <PageHero
         eyebrow="Contact"
         title="Let’s talk about brands, campaigns, ideas, and meaningful work."

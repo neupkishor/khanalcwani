@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
 import Link from "next/link";
+import { SchemaScript } from "@/components/schema-script";
 import {
   capabilities,
   currentSignals,
@@ -9,14 +11,32 @@ import {
   mediaChannels,
   writingHighlights,
 } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
+
+const pageTitle = "Business, marketing, creativity, and continuous learning.";
+const pageDescription =
+  "I am a business and marketing professional based in Kathmandu, Nepal. This website is where I share my work, current projects, learning journey, writing, videos, podcast conversations, and the ideas I am exploring.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/",
+});
 
 export default function HomePage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/",
+        })}
+      />
       <PageHero
         eyebrow="Bhawani Khanal"
-        title="Business, marketing, creativity, and continuous learning."
-        description="I am a business and marketing professional based in Kathmandu, Nepal. This website is where I share my work, current projects, learning journey, writing, videos, podcast conversations, and the ideas I am exploring."
+        title={pageTitle}
+        description={pageDescription}
         primaryCta={{ href: "/work", label: "Explore My Work" }}
         secondaryCta={{ href: "/now", label: "See What I’m Doing Now" }}
       />

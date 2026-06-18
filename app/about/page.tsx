@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
+import { SchemaScript } from "@/components/schema-script";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const beliefs = [
   "Strong communication can turn an ordinary idea into a meaningful brand.",
@@ -7,9 +10,26 @@ const beliefs = [
   "Learning in public builds sharper thinking and better long-term work.",
 ];
 
+const pageTitle = "About";
+const pageDescription =
+  "Learn more about Bhawani Khanal, a business graduate, digital marketer, and creative professional based in Kathmandu, working across marketing, branding, communication, and entrepreneurship.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/about",
+});
+
 export default function AboutPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/about",
+        })}
+      />
       <PageHero
         eyebrow="About"
         title="A business graduate, digital marketer, and creative professional based in Kathmandu."

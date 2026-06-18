@@ -1,10 +1,30 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
+import { SchemaScript } from "@/components/schema-script";
 import { nowProjects, questions } from "@/lib/site-data";
+import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
+
+const pageTitle = "Now";
+const pageDescription =
+  "A live snapshot of what Bhawani Khanal is currently doing, building, learning, and thinking about.";
+
+export const metadata: Metadata = buildMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  path: "/now",
+});
 
 export default function NowPage() {
   return (
     <main>
+      <SchemaScript
+        schema={buildWebPageSchema({
+          title: pageTitle,
+          description: pageDescription,
+          path: "/now",
+        })}
+      />
       <PageHero
         eyebrow="Now"
         title="What I am currently doing, building, and thinking about."
